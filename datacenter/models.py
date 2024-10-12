@@ -52,9 +52,5 @@ def format_duration(duration):
 
 def is_visit_long(visit, minutes=60):
     number_second_in_minute = 60
-    if visit.leaved_at is None:
-        finish_time = timezone.now()
-    else:
-        finish_time = visit.leaved_at
-    duration = finish_time - visit.entered_at
+    duration = get_duration(visit)
     return duration.total_seconds() > minutes * number_second_in_minute
