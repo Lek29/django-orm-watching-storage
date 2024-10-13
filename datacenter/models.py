@@ -45,7 +45,9 @@ def format_duration(duration):
     number_seconds_in_hour = 3600
     number_seconds_in_minute = 60
     hours = int(total_second // number_seconds_in_hour)
-    minutes = int((total_second % number_seconds_in_hour) // number_seconds_in_minute)
+    minutes = int(
+        (total_second % number_seconds_in_hour) // number_seconds_in_minute
+    )
     seconds = int(total_second % number_seconds_in_minute)
     return f"{hours:02}:{minutes:02}:{seconds:02}"
 
