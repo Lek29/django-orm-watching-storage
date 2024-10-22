@@ -1,3 +1,4 @@
 .env
 .idea
 .replit
+poetry.lock
