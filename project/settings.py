@@ -2,7 +2,9 @@ import os
 from dotenv import load_dotenv
 
 
+
 load_dotenv()
+
 
 DATABASES = {
     'default': {
@@ -19,12 +21,12 @@ INSTALLED_APPS = ['datacenter']
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG', 'False').lower() in ['true', ]
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 ROOT_URLCONF = 'project.urls'
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
+print(ALLOWED_HOSTS)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES = [
